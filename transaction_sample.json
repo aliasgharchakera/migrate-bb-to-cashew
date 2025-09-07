@@ -1,0 +1,100 @@
+{
+  "results": [
+    {
+      "id": "Record_2d2fb618-b17f-4064-81ca-eb0985b25f9f",
+      "docs": [
+        {
+          "ok": {
+            "_id": "Record_2d2fb618-b17f-4064-81ca-eb0985b25f9f",
+            "_rev": "2-d894943d7cf2c287fa9c46339e60fcea",
+            "latitude": 0.0,
+            "accuracy": 0,
+            "type": 1,
+            "photos": [],
+            "paymentType": 0,
+            "reservedOwnerId": "41e7078f-8cd6-4479-b6c6-97a8498232f6",
+            "warrantyInMonth": 0,
+            "reservedSource": "android",
+            "reservedAuthorId": "41e7078f-8cd6-4479-b6c6-97a8498232f6",
+            "recordDate": "2024-03-28T11:38:27.038Z",
+            "currencyId": "-Currency_e059b0ba-29b6-4427-acef-e35a30259e4d",
+            "recordState": 1,
+            "longitude": 0.0,
+            "refAmount": 95000,
+            "amount": 95000,
+            "suggestedEnvelopeId": 0,
+            "reservedUpdatedAt": "2024-03-28T11:38:39.061Z",
+            "transferId": "f6785d26-1533-4152-a222-d8e93c829c72",
+            "labels": [],
+            "accountId": "-Account_07280719-2622-461d-ad94-d40184b6319b",
+            "deletedAt": "2024-03-28T20:56:26.141Z",
+            "transfer": true,
+            "categoryChanged": true,
+            "reservedCreatedAt": "2024-03-28T11:38:39.061Z",
+            "reservedDeletedSource": "android",
+            "categoryConfirmReason": 4,
+            "refObjects": [],
+            "reservedModelType": "Record",
+            "categoryId": "-Category_674ca3bf-522f-4406-a93f-11236d84e0c5",
+            "_deleted": true,
+            "_revisions": {
+              "start": 2,
+              "ids": [
+                "d894943d7cf2c287fa9c46339e60fcea",
+                "2c0ac6bae584ed7436324e1cad0b76c6"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "Record_4525a138-aa3a-4385-921b-2ed28f8474af",
+      "docs": [
+        {
+          "ok": {
+            "_id": "Record_4525a138-aa3a-4385-921b-2ed28f8474af",
+            "_rev": "2-a91382ffce528a72296a7c7f6dd1cfaf",
+            "note": "KFC",
+            "latitude": 0.0,
+            "accuracy": 0,
+            "type": 1,
+            "photos": [],
+            "paymentType": 0,
+            "reservedOwnerId": "41e7078f-8cd6-4479-b6c6-97a8498232f6",
+            "warrantyInMonth": 0,
+            "reservedSource": "android",
+            "reservedAuthorId": "41e7078f-8cd6-4479-b6c6-97a8498232f6",
+            "recordDate": "2024-03-28T21:00:36.546Z",
+            "currencyId": "-Currency_e059b0ba-29b6-4427-acef-e35a30259e4d",
+            "recordState": 1,
+            "longitude": 0.0,
+            "refAmount": 66000,
+            "amount": 66000,
+            "suggestedEnvelopeId": 0,
+            "reservedUpdatedAt": "2024-04-01T08:41:43.243Z",
+            "labels": [],
+            "accountId": "-Account_b511de7e-18c8-496e-a360-f7fd9f0e09ed",
+            "deletedAt": "2024-04-03T14:23:02.494Z",
+            "transfer": false,
+            "categoryChanged": true,
+            "reservedCreatedAt": "2024-04-01T08:41:43.243Z",
+            "reservedDeletedSource": "android",
+            "categoryConfirmReason": 4,
+            "refObjects": [],
+            "reservedModelType": "Record",
+            "categoryId": "-Category_b38db31d-f0ab-494a-a4be-3017d02c6051",
+            "_deleted": true,
+            "_revisions": {
+              "start": 2,
+              "ids": [
+                "a91382ffce528a72296a7c7f6dd1cfaf",
+                "983aa2bab9c9bc76fef58babd02d6465"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
