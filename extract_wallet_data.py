@@ -21,31 +21,9 @@ class WalletDataExtractor:
     def __init__(self):
         self.base_url = f"https://couch-prod-asia-1.budgetbakers.com/{BUDGETBAKERS_DATABASE_ID}"
         self.headers = {
-            'Accept-Language': 'en-PK,en-US;q=0.9,en;q=0.8',
-            'Connection': 'keep-alive',
-            'Origin': 'https://web.budgetbakers.com',
-            'Referer': 'https://web.budgetbakers.com/',
-            'Sec-Fetch-Dest': 'empty',
-            'Sec-Fetch-Mode': 'cors',
-            'Sec-Fetch-Site': 'same-site',
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36',
-            'accept': 'application/json',
             'authorization': f'Basic {BUDGETBAKERS_AUTH_TOKEN}',
-            'content-type': 'application/json',
-            'sec-ch-ua': '"Not;A=Brand";v="99", "Google Chrome";v="139", "Chromium";v="139"',
-            'sec-ch-ua-mobile': '?0',
-            'sec-ch-ua-platform': '"macOS"'
         }
-        
-        self.cookies = {
-            '_ga': 'GA1.1.1315389963.1747657708',
-            '_hjSessionUser_1490990': 'eyJpZCI6IjQ3MGY4YTMyLWExNzItNTI3MS04YWIwLTQ4ODVhZDYxMmIwYyIsImNyZWF0ZWQiOjE3NDc2NTc3MTUyNzAsImV4aXN0aW5nIjpmYWxzZX0=',
-            '_gcl_au': '1.1.1802770239.1757149476',
-            '_ga_45XGHRKNNN': 'GS2.1.s1757151858$o4$g0$t1757151858$j60$l0$h0',
-            '_ga_19854BJ95H': 'GS2.1.s1757151858$o4$g0$t1757151858$j60$l0$h0',
-            'mp_505db41837444662d7e6637cc6755573_mixpanel': '%7B%22distinct_id%22%3A%20%2241e7078f-8cd6-4479-b6c6-97a8498232f6%22%2C%22%24device_id%22%3A%20%22196e8846d52972-0bb9724629e3ff8-19525636-13c680-196e8846d532967%22%2C%22%24initial_referrer%22%3A%20%22https%3A%2F%2Fbudgetbakers.com%2F%22%2C%22%24initial_referring_domain%22%3A%20%22budgetbakers.com%22%2C%22__mps%22%3A%20%7B%7D%2C%22__mpso%22%3A%20%7B%7D%2C%22__mpus%22%3A%20%7B%7D%2C%22__mpa%22%3A%20%7B%7D%2C%22__mpu%22%3A%20%7B%7D%2C%22__mpr%22%3A%20%5B%5D%2C%22__mpap%22%3A%20%5B%5D%2C%22%24search_engine%22%3A%20%22google%22%2C%22%24user_id%22%3A%20%2241e7078f-8cd6-4479-b6c6-97a8498232f6%22%7D',
-            '_ga_0WPJ703JCD': 'GS2.1.s1757150043$o1$g1$t1757154666$j51$l0$h0'
-        }
+
 
     def get_changes(self, since=0, limit=1000):
         """Get changes from CouchDB"""
@@ -57,7 +35,7 @@ class WalletDataExtractor:
             'limit': limit
         }
         
-        response = requests.get(url, headers=self.headers, cookies=self.cookies, params=params)
+        response = requests.get(url, headers=self.headers, params=params)
         response.raise_for_status()
         return response.json()
 
@@ -70,7 +48,7 @@ class WalletDataExtractor:
             "docs": [{"id": doc_id, "rev": rev}]
         }
         
-        response = requests.post(url, headers=self.headers, cookies=self.cookies, params=params, json=data)
+        response = requests.post(url, headers=self.headers, params=params, json=data)
         response.raise_for_status()
         return response.json()
 
@@ -102,7 +80,6 @@ class WalletDataExtractor:
                 response = requests.post(
                     f"{self.base_url}/_bulk_get",
                     headers=self.headers,
-                    cookies=self.cookies,
                     params={'revs': 'true', 'latest': 'true'},
                     json=data
                 )
