@@ -61,47 +61,14 @@ class WalletToCashewCleanMigrator:
             if statement and not statement.startswith('CREATE TABLE sqlite_sequence'):
                 self.cursor.execute(statement)
         
-        # Insert default app settings
-        default_settings = {
-            "databaseJustImported": False,
-            "backupLimit": 20,
-            "backupSync": True,
-            "syncEveryChange": False,
-            "devicesHaveBeenSynced": 1,
-            "numBackups": 1,
-            "theme": "system",
-            "use24HourFormat": "system",
-            "numberCountUpAnimation": True,
-            "appAnimations": 0,
-            "showFAQAndHelpLink": True,
-            "showExtraInfoText": True,
-            "selectedWalletPk": "0",
-            "selectedSubscriptionType": 0,
-            "accentColor": "0xff1b447a",
-            "accentSystemColor": False,
-            "widgetOpacity": 1,
-            "widgetTheme": "system",
-            "nonCompactTransactions": False,
-            "fadeTransactionNameOverflows": False,
-            "circularProgressRotation": False,
-            "forceFullDarkBackground": False,
-            "futureTransactionDaysHomePage": 4,
-            "homePageTransactionsListIncomeAndExpenseOnly": True,
-            "showWalletSwitcher": True,
-            "showWalletSwitcherFullScreen": True,
-            "showWalletList": False,
-            "showWalletListFullScreen": False,
-            "showPinnedBudgets": True,
-            "showPinnedBudgetsFullScreen": True,
-            "showObjectives": True,
-            "showObjectivesFullScreen": True,
-            "showAllSpendingSummary": False
-        }
+        # Load default app settings
+        with open('cashew_app_settings.json', 'r', encoding='utf-8') as f:
+            default_settings = json.load(f)
         
         self.cursor.execute("""
             INSERT INTO app_settings (settings_j_s_o_n, date_updated)
             VALUES (?, ?)
-        """, (json.dumps(default_settings), int(time.time())))
+        """, (default_settings, int(time.time())))
         
         self.conn.commit()
         print("✅ Fresh Cashew database schema created from cashew_schema.sql")

@@ -5,6 +5,19 @@ This script migrates the data from Wallet by BudgetBakers to Cashew SQLite datab
 ## Requirements
 - Python 3.10
 - requests
+- dotenv
+
+## Setup
+1. Create a `.env` file in the root of the project and add the following variables:
+```bash
+BUDGETBAKERS_DATABASE_ID=your_budgetbakers_database_id
+BUDGETBAKERS_AUTH_TOKEN=your_budgetbakers_auth_token
+```
+
+2. Install the dependencies
+```bash
+pip install -r requirements.txt
+```
 
 ## Usage
 1. Extract the data from Wallet by BudgetBakers
@@ -12,12 +25,10 @@ This script migrates the data from Wallet by BudgetBakers to Cashew SQLite datab
 
 ### Extract the data from Wallet by BudgetBakers
 ```bash
-pip install -r requirements.txt
 python extract_wallet_data.py
 ```
 
 ### Migrate the data to Cashew SQLite database
 ```bash
-pip install -r requirements.txt
-python wallet_to_cashew_clean_migrator.py
+python wallet_to_cashew_migrator.py
 ```
