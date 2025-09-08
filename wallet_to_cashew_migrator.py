@@ -63,7 +63,7 @@ class WalletToCashewCleanMigrator:
         
         # Load default app settings
         with open('cashew_app_settings.json', 'r', encoding='utf-8') as f:
-            default_settings = json.load(f)
+            default_settings = f.read()
         
         self.cursor.execute("""
             INSERT INTO app_settings (settings_j_s_o_n, date_updated)
